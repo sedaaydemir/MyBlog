@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBlog.EntityLayer.Concrete
+namespace MyBlog.DataAccessLayer.Abstract
 {
-    public class Comment
+    public interface IContactDal:IGenericDal<IContactDal>
     {
-        public int CommentId { get; set; }
     }
 }
