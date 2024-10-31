@@ -9,5 +9,6 @@ namespace MyBlog.EntityLayer.Concrete
     public class Comment
     {
         public int CommentId { get; set; }
+        public string commentDetail { get; set; }
     }
 }
