@@ -1,4 +1,8 @@
+using MyBlog.BusinessLayer.Abstract;
+using MyBlog.BusinessLayer.Concrete;
+using MyBlog.DataAccessLayer.Abstract;
 using MyBlog.DataAccessLayer.Context;
+using MyBlog.DataAccessLayer.EntityFramework;
 using MyBlog.EntityLayer.Concrete;
 using MyBlog.PresentationLayer.Models;
 
@@ -8,6 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BlogContext>();
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityErrorValidator>();
 
+builder.Services.AddScoped<IArticleDal, EfArticleDal>();
+builder.Services.AddScoped<IArticleService, ArticleManager>();
+
+builder.Services.AddScoped<ICategoryDal,EfCategoryDal>();
+builder.Services.AddScoped<ICategoryService,CategoryManager>();
 
 builder.Services.AddControllersWithViews();
 
@@ -25,8 +34,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-app.UseAuthorization();
+app.UseAuthentication();//login
+app.UseAuthorization();//eriþim yetki izni
 
 app.MapControllerRoute(
     name: "default",
