@@ -9,5 +9,6 @@ namespace MyBlog.BusinessLayer.Abstract
 {
     public interface IArticleService:IGenericService<Article>
     {
+        public List<Article> TArticleListWithCategory();
     }
 }
