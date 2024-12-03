@@ -11,5 +11,9 @@ namespace MyBlog.BusinessLayer.Abstract
     {
         public List<Article> TArticleListWithCategory();
         public List<Article> TArticleListWithCategoryAndAppUser();
+
+        public Article TArticleListWithCategoryAndAppUserByArticleId(int id);
+
+        public void TArticleViewCountIncrease(int id);
     }
 }

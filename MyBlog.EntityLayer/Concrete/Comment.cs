@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,12 @@ namespace MyBlog.EntityLayer.Concrete
     {
         public int CommentId { get; set; }
         public string commentDetail { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+        public bool Status { get; set; }
+        public int AppUserId {  get; set; }
+        public AppUser AppUser { get; set; }    
+        public int ArticleId { get; set; }
+        public Article Article { get; set; }    
     }
 }
